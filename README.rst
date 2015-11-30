@@ -1,0 +1,98 @@
+=====================
+Django Accept Headers
+=====================
+
+.. list-table::
+    :stub-columns: 1
+
+    * - docs
+      - |docs|
+    * - tests
+      - | |travis| |requires|
+        | |codecov|
+        |
+    * - package
+      - |version| |downloads| |wheel| |supported-versions| |supported-implementations|
+
+.. |docs| image:: https://readthedocs.org/projects/django-accept-header/badge/?style=flat
+    :target: https://readthedocs.org/projects/django-accept-header
+    :alt: Documentation Status
+
+.. |travis| image:: https://travis-ci.org/fladi/django-accept-header.svg?branch=master
+    :alt: Travis-CI Build Status
+    :target: https://travis-ci.org/fladi/django-accept-header
+
+.. |requires| image:: https://requires.io/github/fladi/django-accept-header/requirements.svg?branch=master
+    :alt: Requirements Status
+    :target: https://requires.io/github/fladi/django-accept-header/requirements/?branch=master
+
+.. |codecov| image:: https://codecov.io/github/fladi/django-accept-header/coverage.svg?branch=master
+    :alt: Coverage Status
+    :target: https://codecov.io/github/fladi/django-accept-header
+
+.. |version| image:: https://img.shields.io/pypi/v/django_accept_header.svg?style=flat
+    :alt: PyPI Package latest release
+    :target: https://pypi.python.org/pypi/django_accept_header
+
+.. |downloads| image:: https://img.shields.io/pypi/dm/django_accept_header.svg?style=flat
+    :alt: PyPI Package monthly downloads
+    :target: https://pypi.python.org/pypi/django_accept_header
+
+.. |wheel| image:: https://img.shields.io/pypi/wheel/django_accept_header.svg?style=flat
+    :alt: PyPI Wheel
+    :target: https://pypi.python.org/pypi/django_accept_header
+
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/django_accept_header.svg?style=flat
+    :alt: Supported versions
+    :target: https://pypi.python.org/pypi/django_accept_header
+
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/django_accept_header.svg?style=flat
+    :alt: Supported implementations
+    :target: https://pypi.python.org/pypi/django_accept_header
+
+
+A Django middleware that inspects the HTTP Acept headers sent by browsers. It adds a new method to each `request` instance called `accepts(str)` which can be used
+to determine if a certain mimetype is accepted by the user agent that issued the request.
+
+Installation
+============
+
+::
+
+    pip install django_accept_header
+
+Usage
+=====
+
+First add the middleware to your `settings.py` file::
+
+    MIDDLEWARE_CLASSES = (
+        # ...
+        'django_accept_header.middleware.AcceptMiddleware',
+    )
+
+To check if the `text/plain` mimetype is accepted by the user agent::
+
+    def some_view(request):
+        if request.accepts('text/plain'):
+            # do something
+
+The ordered list of accepted mimetypes can also be used::
+
+    def some_view(request):
+        for media_type in request.accepted_types:
+            # do something
+
+See the full documentation for how to use the media types please see the full documentation.
+
+Documentation
+=============
+
+https://django-accept-header.readthedocs.org/
+
+Development
+===========
+
+To run the all tests run::
+
+    tox
