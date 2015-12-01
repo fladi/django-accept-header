@@ -37,7 +37,7 @@ Development
 
 To set up `django-accept-header` for local development:
 
-1. `Fork django-accept-header on GitHub <https://github.com/fladi/django-accept-header/fork>`_.
+1. `Fork django-accept-header on GitHub <https://github.com/fladi/django-accept-header>`_.
 2. Clone your fork locally::
 
     git clone git@github.com:your_name_here/django-accept-header.git
