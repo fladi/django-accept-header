@@ -1,8 +1,9 @@
+0.3.0 / 2016-02-02
+==================
 
-Changelog
-=========
+  * Make python3.5 the default version used for tests.
 
-0.1.0 (2015-11-26)
------------------------------------------
+0.1.0 / 2015-11-26
+==================
 
-* First release on PyPI.
+  * First release on PyPI.
