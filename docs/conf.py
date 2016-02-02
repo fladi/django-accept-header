@@ -25,7 +25,7 @@ project = u'Django Accept Headers'
 year = '2015'
 author = u'Michael Fladischer'
 copyright = '{0}, {1}'.format(year, author)
-version = release = u'0.3.0'
+version = release = u'0.3.1'
 
 pygments_style = 'trac'
 templates_path = ['.']
