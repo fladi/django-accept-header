@@ -23,7 +23,7 @@ def read(*names, **kwargs):
 
 
 setup(
-    name='django_accept_header',
+    name='django-accept-header',
     version='0.2.1',
     license='BSD',
     description='A Django middleware that inspects the HTTP Accept headers sent by browsers.',

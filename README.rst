@@ -30,25 +30,25 @@ Django Accept Headers
     :alt: Coverage Status
     :target: https://codecov.io/github/fladi/django-accept-header
 
-.. |version| image:: https://img.shields.io/pypi/v/django_accept_header.svg?style=flat
+.. |version| image:: https://img.shields.io/pypi/v/django-accept-header.svg?style=flat
     :alt: PyPI Package latest release
-    :target: https://pypi.python.org/pypi/django_accept_header
+    :target: https://pypi.python.org/pypi/django-accept-header
 
-.. |downloads| image:: https://img.shields.io/pypi/dm/django_accept_header.svg?style=flat
+.. |downloads| image:: https://img.shields.io/pypi/dm/django-accept-header.svg?style=flat
     :alt: PyPI Package monthly downloads
-    :target: https://pypi.python.org/pypi/django_accept_header
+    :target: https://pypi.python.org/pypi/django-accept-header
 
-.. |wheel| image:: https://img.shields.io/pypi/wheel/django_accept_header.svg?style=flat
+.. |wheel| image:: https://img.shields.io/pypi/wheel/django-accept-header.svg?style=flat
     :alt: PyPI Wheel
-    :target: https://pypi.python.org/pypi/django_accept_header
+    :target: https://pypi.python.org/pypi/django-accept-header
 
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/django_accept_header.svg?style=flat
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/django-accept-header.svg?style=flat
     :alt: Supported versions
-    :target: https://pypi.python.org/pypi/django_accept_header
+    :target: https://pypi.python.org/pypi/django-accept-header
 
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/django_accept_header.svg?style=flat
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/django-accept-header.svg?style=flat
     :alt: Supported implementations
-    :target: https://pypi.python.org/pypi/django_accept_header
+    :target: https://pypi.python.org/pypi/django-accept-header
 
 
 A Django middleware that inspects the HTTP Acept headers sent by browsers. It adds a new method to each `request` instance called `accepts(str)` which can be used
@@ -59,7 +59,7 @@ Installation
 
 ::
 
-    pip install django_accept_header
+    pip install django-accept-header
 
 Usage
 =====
