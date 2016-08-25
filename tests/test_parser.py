@@ -19,6 +19,7 @@
 import unittest
 
 from django_accept_header.header import parse, MediaType
+from django_accept_header.exceptions import MediaTypeValueError, SubtypeValueError
 
 
 class ParserTestCase(unittest.TestCase):
@@ -240,6 +241,18 @@ class MediaTypeTestCase(unittest.TestCase):
             MediaType('application/*').subtype,
             '*'
         )
+
+    def test_invalid_media_types(self):
+        with self.assertRaises(MediaTypeValueError):
+            MediaType('/json')
+        with self.assertRaises(MediaTypeValueError):
+            MediaType('/')
+
+    def test_invalid_subtypes(self):
+        with self.assertRaises(SubtypeValueError):
+            MediaType('application/')
+        with self.assertRaises(SubtypeValueError):
+            MediaType('application')
 
     def test_all_subtypes(self):
         self.assertFalse(MediaType('application/json').all_subtypes)

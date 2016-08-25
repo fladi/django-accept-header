@@ -15,13 +15,18 @@
 
 from __future__ import absolute_import
 
+from django import http
+
+from .exceptions import ParsingError
 from .header import parse
 
 
 class AcceptMiddleware(object):
 
     def process_request(self, request):
-        acc = parse(request.META.get('HTTP_ACCEPT'))
+        try:
+            acc = parse(request.META.get('HTTP_ACCEPT'))
+        except ParsingError:
+            return http.HttpResponseBadRequest()
         setattr(request, 'accepted_types', acc)
-        request.accepts = lambda mt: any([ma.matches(mt) for ma in acc])
-        return None
+        request.accepts = lambda mt: any(ma.matches(mt) for ma in acc)

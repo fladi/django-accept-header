@@ -19,11 +19,13 @@ import re
 
 from collections import OrderedDict as kv
 
+from . import exceptions
+
 
 class MediaType(object):
 
     def __init__(self, media_type, q=None, params=None):
-        (self._mediatype, self._subtype) = media_type.split('/')
+        self.mediatype, _, self.subtype = media_type.partition('/')
         self._quality = q or 1.0
         self._params = params or {}
 
@@ -32,7 +34,7 @@ class MediaType(object):
 
     def __str__(self):
         if len(self.params) > 0:
-            p = '; '.join(['{key}={value}'.format(key=k, value=v) for k, v in self.params.items()])
+            p = '; '.join('{key}={value}'.format(key=k, value=v) for k, v in self.params.items())
             return '%s; q=%s; %s' % (self.mimetype, self.q, p)
         else:
             return '%s; q=%s' % (self.mimetype, self.q)
@@ -75,9 +77,21 @@ class MediaType(object):
     def mediatype(self):
         return self._mediatype
 
+    @mediatype.setter
+    def mediatype(self, value):
+        if not value:
+            raise exceptions.MediaTypeValueError(value)
+        self._mediatype = value
+
     @property
     def subtype(self):
         return self._subtype
+
+    @subtype.setter
+    def subtype(self, value):
+        if not value:
+            raise exceptions.SubtypeValueError(value)
+        self._subtype = value
 
     @property
     def quality(self):
